@@ -1,8 +1,8 @@
 import numpy as np
-from tqdm import tqdm
 import torch
 import torchaudio
 from torchaudio import transforms
+from tqdm import tqdm
 
 hubert = torch.hub.load("bshall/hubert:main", "hubert_soft").cuda()
 

@@ -1,12 +1,12 @@
 import argparse
 import logging
-import numpy as np
 from pathlib import Path
-from tqdm import tqdm
 
+import numpy as np
 import torch
 import torchaudio
 from torchaudio.functional import resample
+from tqdm import tqdm
 
 
 def encode_dataset(args):

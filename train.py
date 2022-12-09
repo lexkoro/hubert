@@ -4,20 +4,20 @@ from pathlib import Path
 
 import torch
 import torch.cuda.amp as amp
+import torch.distributed as dist
+import torch.multiprocessing as mp
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
-import torch.distributed as dist
-from torch.utils.data.distributed import DistributedSampler
-import torch.multiprocessing as mp
-from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.nn.modules.utils import consume_prefix_in_state_dict_if_present
+from torch.nn.parallel import DistributedDataParallel as DDP
+from torch.utils.data import DataLoader
+from torch.utils.data.distributed import DistributedSampler
+from torch.utils.tensorboard import SummaryWriter
 
-from hubert.model import Hubert, URLS
 from hubert.dataset import AcousticUnitsDataset
-from hubert.utils import Metric, save_checkpoint, load_checkpoint
+from hubert.model import URLS, Hubert
+from hubert.utils import Metric, load_checkpoint, save_checkpoint
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
