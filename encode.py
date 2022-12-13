@@ -24,7 +24,7 @@ def encode_dataset(args):
 
         out_path = args.out_dir / in_path.relative_to(args.in_dir)
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        np.save(out_path.with_suffix(".npy"), units.squeeze().cpu().numpy())
+        np.save(out_path.with_suffix(".hubert.npy"), units.squeeze().cpu().numpy())
 
 
 if __name__ == "__main__":
